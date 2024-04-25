@@ -2,12 +2,11 @@
 
 input_dir="$1"
 output_dir="$2"
-counter=1
+count=1
 
 find "$input_dir" -type f | while read -r file; do
-	dir_name=$(dirname "$file")
-	base_name=$(basename "$file")
-	new_name="${counter}${base_name}"
+	name=$(basename "$file")
+	new_name="${count}${name}"
 	cp "$file" "$output_dir/$new_name"
-	counter=$((counter + 1))
+	count=$((count + 1))
 done
